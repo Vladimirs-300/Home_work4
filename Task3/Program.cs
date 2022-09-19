@@ -1,20 +1,31 @@
 ﻿// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
+int N = 8;  // Можно ввести любое число
+int[] SetArray(int x)
+{
+    int[] arr = new int[x];
+    for (int i = 0; i < x; i++)
+    {
+        arr[i] = new Random().Next(1, 100);
+    }
+    return arr;
+}
 
-int[] Create(int lenght)
+void PrintArry(int[] coll)
 {
-    int[] array = new int[lenght];
-    for (int i = 0; i < array.Length; i++)
+    int count = coll.Length;
+    int index = 0;
+    Console.Write("[");
+    while (index < count)
     {
-        array[i] = new Random().Next(10, 100);
+        Console.Write(coll[index]);
+        index++;
+        if (index < count)
+        {
+            Console.Write(", ");
+        }
     }
-    return array;
+    Console.Write("]");
 }
-void DisplayArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        System.Console.Write($"{array[i]}\t");
-    }
-}
-DisplayArray(Create(8));
+
+PrintArry(SetArray(N));
